@@ -1,8 +1,7 @@
 # 51PNM
 
-Udacity Project 5 part 1 Neighborhood map
-
 ### About:
+Udacity Project 5 part 1 Neighborhood map
 
 ### How to run:
 
