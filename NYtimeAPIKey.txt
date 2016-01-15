@@ -1,0 +1,32 @@
+Signed in as rtkirby60 My Account Log Out
+Times Developer Network Application Registration
+Thank you for registering.
+Your API Keys:
+
+Article Search API
+Key: f967757a6cb2fbe2f3c2d975647a3b32:10:74016243
+
+Application: rtkirby60 Key: f967757a6cb2fbe2f3c2d975647a3b32:10:74016243 Status: active Registered: 3 seconds ago
+Key Rate Limits
+10	Calls per second
+10,000	Calls per day
+Most Popular API
+Key: df90e0f3bb571114e9e0f606232afee5:0:74016243
+
+Application: rtkirby60 Key: df90e0f3bb571114e9e0f606232afee5:0:74016243 Status: active Registered: 3 seconds ago
+Key Rate Limits
+8	Calls per second
+5,000	Calls per day
+Your new key will be e-mailed to you. You can also click "http://developer.nytimes.com/member/my-account" at any time to view your API Keys.
+
+Click "APIs" to read the documentation and start coding. Post your comments and questions in the forum. We look forward to seeing what you create!
+
+Overview
+Available APIs
+Keys
+Forum
+Gallery
+API Console
+
+Events	APIs	Blog	Open Source	Careers
+Copyright 2014 The New York Times	API Terms of Use	NYTimes.com	Privacy Policy	Careers
