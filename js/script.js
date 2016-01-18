@@ -35,7 +35,11 @@ function loadData() {
     html: items.join( "" )
   }).appendTo( "body" );
 });
-
+    // <ul id="nytimes-articles" class="article-list"> 
+    // <li class="article">
+    // <a href="http://wwww.nytimes.com/2014/10/03/arts/design/museum-gallery-listings-for-oct-3-9.html">
+    // Museum $ Gallery Listings for Oct. 3-9</a> 
+    //</ul>
     return false;
 };
 
