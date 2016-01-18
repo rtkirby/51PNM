@@ -24,7 +24,7 @@ function loadData() {
     // YOUR CODE GOES HERE!
     // NYTimes AJAX request
     
-    $.getJSON( "ajax/test.json", function( data ) {
+ /*   $.getJSON( "ajax/test.json", function( data ) {
   var items = [];
   $.each( data, function( key, val ) {
     items.push( "<li id='" + key + "'>" + val + "</li>" );
@@ -34,12 +34,32 @@ function loadData() {
     "class": "my-new-list",
     html: items.join( "" )
   }).appendTo( "body" );
-});
+}); */
     // <ul id="nytimes-articles" class="article-list"> 
     // <li class="article">
     // <a href="http://wwww.nytimes.com/2014/10/03/arts/design/museum-gallery-listings-for-oct-3-9.html">
     // Museum $ Gallery Listings for Oct. 3-9</a> 
     //</ul>
+
+     var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
+                        + cityStr + '&sort=newest&api-key=f967757a6cb2fbe2f3c2d975647a3b32:10:74016243'
+
+    $.getJSON(nytimesUrl, function(data){
+
+        $nytHeaderElem.text('New York Times Articles About ' + cityStr);
+
+        articles = data.response.docs;
+        for (var i = 0; i < articles.length; i++) {
+            var article = articles[i];
+            $nytElem.append('<li class="article">'+
+                '<a href="'+article.web_url+'">'+article.headline.main+
+                    '</a>'+
+                '<p>' + article.snipppet + '</p>'+
+            '</li>');
+        };
+    }).error(function(e){
+        $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
+    });
     return false;
 };
 
