@@ -23,23 +23,6 @@ function loadData() {
 
     // YOUR CODE GOES HERE!
     // NYTimes AJAX request
-    
- /*   $.getJSON( "ajax/test.json", function( data ) {
-  var items = [];
-  $.each( data, function( key, val ) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-  });
- 
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "body" );
-}); */
-    // <ul id="nytimes-articles" class="article-list"> 
-    // <li class="article">
-    // <a href="http://wwww.nytimes.com/2014/10/03/arts/design/museum-gallery-listings-for-oct-3-9.html">
-    // Museum $ Gallery Listings for Oct. 3-9</a> 
-    //</ul>
 
      var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='
                         + cityStr + '&sort=newest&api-key=f967757a6cb2fbe2f3c2d975647a3b32:10:74016243'
@@ -60,6 +43,31 @@ function loadData() {
     }).error(function(e){
         $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
     });
+
+     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' 
+                    + cityStr + '&format=json&callback=wikiCallback';
+
+    $.ajax({
+        url: wikiUrl,
+        dataType: "jsonp",
+        // jsonp: "callback",
+        success: function(response) {
+            var articleList = response[1];
+
+            for(var i = 0; i < articleList.length; i++) {
+                articleStr = articleList[i];
+                var url = 'http://en.wikipedia.org/wiki' + articleStr;
+                $wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
+            }
+        },
+        error: function(response) {
+            console.log("request error");
+            $wikiElem.append('<lable class="error">Wikipedia Api Error</lable>')
+        }
+
+    });
+
+    
     return false;
 };
 
