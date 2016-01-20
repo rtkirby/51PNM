@@ -67,7 +67,7 @@ function loadData() {
 
     });
 
-    
+
     return false;
 };
 
